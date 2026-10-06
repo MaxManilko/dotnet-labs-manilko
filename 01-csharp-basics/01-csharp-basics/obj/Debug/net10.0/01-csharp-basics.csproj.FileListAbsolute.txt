@@ -1,0 +1,14 @@
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\bin\Debug\net10.0\01-csharp-basics.exe
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\bin\Debug\net10.0\01-csharp-basics.deps.json
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\bin\Debug\net10.0\01-csharp-basics.runtimeconfig.json
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\bin\Debug\net10.0\01-csharp-basics.dll
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\bin\Debug\net10.0\01-csharp-basics.pdb
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\01-csharp-basics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\01-csharp-basics.AssemblyInfoInputs.cache
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\01-csharp-basics.AssemblyInfo.cs
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\01-csharp-basics.csproj.CoreCompileInputs.cache
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\01-csharp-basics.dll
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\refint\01-csharp-basics.dll
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\01-csharp-basics.pdb
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\01-csharp-basics.genruntimeconfig.cache
+C:\Users\manil\source\repos\01-csharp-basics\01-csharp-basics\obj\Debug\net10.0\ref\01-csharp-basics.dll
