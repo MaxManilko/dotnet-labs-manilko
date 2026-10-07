@@ -45,30 +45,17 @@ class Program
 
             int choice = ReadInt("Ваш вибір: ", 0, 6);
 
-            switch (choice)
+            isRunning = choice switch
             {
-                case 1:
-                    HandleKmToMiles();
-                    break;
-                case 2:
-                    HandleMilesToKm();
-                    break;
-                case 3:
-                    HandleKgToLbs();
-                    break;
-                case 4:
-                    HandleLbsToKg();
-                    break;
-                case 5:
-                    HandleCelToF();
-                    break;
-                case 6:
-                    HandleFToCel();
-                    break;
-                case 0:
-                    isRunning = false; // Зупиняє цикл лише при виборі 0
-                    break;
-            }
+                0 => false,    
+                1 => HandleKmToMiles(), 
+                2 => HandleMilesToKm(),
+                3 => HandleKgToLbs(),
+                4 => HandleLbsToKg(),
+                5 => HandleCelToF(),
+                6 => HandleFToCel(),
+                _ => true // сюди потрапити неможливо: ReadInt уже обмежив ввід діапазоном 0-3
+            };
         }
 
         Console.WriteLine("Роботу завершено.");
@@ -83,91 +70,97 @@ class Program
 
 
     // --- km - mi
-    static void HandleKmToMiles()
+    static bool HandleKmToMiles()
     {
         double km = ReadDouble("Введіть відстань у км: ");
         if (km < 0)
         {
             Console.Write("Відстань не може бути від'ємна");
-            return;
+            return true;
         }
 
         double mi = ConvertKmToMiles(km);
         Console.WriteLine($"{km} км = {Math.Round(mi, 2)} милі");
+        return true;
     }
 
     // --- mi - km
-    static void HandleMilesToKm()
+    static bool HandleMilesToKm()
     {
         double miles = ReadDouble("Введіть відстань у милях: ");
         if (miles < 0)
         {
             Console.Write("Відстань не може бути від'ємна");
-            return;
+            return true;
         }
 
         double km = ConvertMilesToKm(miles);
         Console.WriteLine($"{miles} миль = {Math.Round(km, 2)} км");
+        return true;
     }
 
     // --- kg - lbs 
 
-    static void HandleKgToLbs()
+    static bool HandleKgToLbs()
     {
         double kg = ReadDouble("Введіть вагу у кг: ");
         if (kg < 0)
         {
             Console.Write("Маса не може бути від'ємна");
-            return;
+            return true;
         }
 
         double lbs = ConvertKgToLbs(kg);
         Console.WriteLine($"{kg} кг = {Math.Round(lbs, 2)} фунти");
+        return true;
     }
 
 // ---  lbs - kg
 
-    static void HandleLbsToKg()
+    static bool HandleLbsToKg()
     {
         double lbs = ReadDouble("Введіть вагу у фунтах: ");
         if (lbs < 0)
         {
             Console.Write("Маса не може бути від'ємна");
-            return;
+            return true;
         }
 
         double kg = ConvertLbsToKg(lbs);
         Console.WriteLine($"{lbs} фунтів = {Math.Round(kg, 2)} кг");
+        return true;
     }
 
 // --- °C → °F: °F = °C × 9 / 5 + 32
 
-    static void HandleCelToF()
+    static bool HandleCelToF()
     {
         double celsius = ReadDouble("Введіть температуру в °C: ");
         if (celsius < -273.15)
         {
             Console.Write("Температура не може бути нижча за абсолютний нуль");
-            return;
+            return true;
         }
 
         double fahrenheit = ConvertCelToF(celsius);
         Console.WriteLine($"{celsius} °C = {Math.Round(fahrenheit, 2)} °F");
+        return true;
     }
 
     // --- °F → °C: °C = (°F − 32) × 5 / 9
 
-    static void HandleFToCel()
+    static bool HandleFToCel()
     {
         double fahrenheit = ReadDouble("Введіть температуру в °F: ");
         if (fahrenheit < -459.67)
         {
             Console.Write("Температура не може бути нижча за абсолютний нуль");
-            return;
+            return true;
         }
 
         double celsius = ConvertFToCel(fahrenheit);
         Console.WriteLine($"{fahrenheit} °F = {Math.Round(celsius, 2)} °C");
+        return true;
     }
     // === 4. "Робочі" методи — саме вони мають параметри й повернене значення ===
     // (у своєму варіанті тут буде CalculateAverage/FindMax/Classify тощо, а не CountPositive)
@@ -178,18 +171,15 @@ class Program
         {
             Console.Write(prompt);
             string input = Console.ReadLine();
-
-            // Перевіряємо, чи це взагалі ціле число
+            
             bool isSuccess = int.TryParse(input, out int result);
-
-            // Якщо це число І воно входить у дозволений діапазон [min; max]
+            
             if (isSuccess && result >= min && result <= max)
             {
-                return result; // Віддаємо правильний вибір
+                return result; 
             }
             else
             {
-                // Якщо ввели букви або число не з меню (наприклад, 10)
                 Console.WriteLine($"Помилка! Введіть число від {min} до {max}.");
             }
         }
